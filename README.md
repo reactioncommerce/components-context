@@ -1,5 +1,8 @@
 # @reactioncommerce/components-context
 
+![npm (scoped)](https://img.shields.io/npm/v/@reactioncommerce/components-context.svg)
+ [![CircleCI](https://circleci.com/gh/reactioncommerce/components-context.svg?style=svg)](https://circleci.com/gh/reactioncommerce/components-context)
+
 A system for injecting React components into other React components from a central components context.
 
 This package allows your component to have all of its component dependencies injected without the user having to inject them everywhere the component is used.

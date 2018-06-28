@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components prop key overwrites context key 1`] = `"{\\"Button\\":\\"p\\"}"`;
+
+exports[`merges components from context with components prop 1`] = `"{\\"abc\\":\\"123\\",\\"xyz\\":\\"321\\"}"`;
+
+exports[`no errors and \`components\` prop is null when all components are missing 1`] = `"null"`;
+
+exports[`no errors when components context is missing 1`] = `"{\\"Button\\":\\"p\\"}"`;
+
+exports[`passes components from context in components prop 1`] = `"{\\"foo\\":\\"bar\\"}"`;
+
+exports[`prefixed key overwrites main context key 1`] = `"{\\"Button\\":\\"p\\",\\"MyComponent_Button\\":\\"p\\"}"`;

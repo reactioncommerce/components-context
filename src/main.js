@@ -1,4 +1,16 @@
 import React from "react";
+import hoistNonReactStatics from "hoist-non-react-statics";
+
+/**
+ * @see https://reactjs.org/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging
+ * @param {Object} HOC The higher-order component
+ * @param {Object} WrappedComponent The wrapped component
+ * @returns {undefined}
+ */
+function wrapDisplayName(HOC, WrappedComponent) {
+  const innerDisplayName = WrappedComponent.displayName || WrappedComponent.name || "Component";
+  HOC.displayName = `WithComponents(${innerDisplayName})`;
+}
 
 const ComponentsContext = React.createContext();
 
@@ -16,7 +28,7 @@ export const ComponentsProvider = ComponentsContext.Provider;
  *   the prop overriding the context.
  */
 export function withComponents(Component, prefix = Component.name) {
-  return React.forwardRef((props, ref) => (
+  const WithComponents = React.forwardRef((props, ref) => (
     <ComponentsContext.Consumer>
       {(componentsFromContext) => {
         const { components: componentsFromProps, ...otherProps } = props;
@@ -46,4 +58,12 @@ export function withComponents(Component, prefix = Component.name) {
       }}
     </ComponentsContext.Consumer>
   ));
+
+  // https://reactjs.org/docs/higher-order-components.html#static-methods-must-be-copied-over
+  hoistNonReactStatics(WithComponents, Component);
+
+  // https://reactjs.org/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging
+  wrapDisplayName(WithComponents, Component);
+
+  return WithComponents;
 }

@@ -3,6 +3,9 @@ import renderer from "react-test-renderer";
 import { ComponentsProvider, withComponents } from "./main";
 
 class MyComponent extends Component {
+  static someStaticProp = "foo";
+  static displayName = "MyComponent";
+
   render() {
     return JSON.stringify(this.props.components);
   }
@@ -51,4 +54,12 @@ test("no errors and `components` prop is null when all components are missing", 
   const component = renderer.create(<MyWrappedComponent />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
+});
+
+test("preserves non-React static properties", () => {
+  expect(MyWrappedComponent.someStaticProp).toBe("foo");
+});
+
+test("wraps display name", () => {
+  expect(MyWrappedComponent.displayName).toBe("WithComponents(MyComponent)");
 });

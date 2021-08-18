@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/reactioncommerce/components-context#readme",
   "dependencies": {
-    "hoist-non-react-statics": "^3.2.0"
+    "hoist-non-react-statics": "^3.3.2"
   },
   "devDependencies": {
     "@commitlint/cli": "7.0.0",

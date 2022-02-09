@@ -8,11 +8,12 @@
     "lint": "eslint src",
     "test": "jest src"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reactioncommerce/components-context.git"
   },
-  "author": "Reaction Commerce <hello@reactioncommerce.com>",
+  "author": "Mailchimp Open Commerce <hello-open-commerce@mailchimp.com>",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/reactioncommerce/components-context/issues"
@@ -24,28 +25,34 @@
   "devDependencies": {
     "@commitlint/cli": "7.0.0",
     "@commitlint/config-conventional": "7.0.1",
-    "@reactioncommerce/eslint-config": "1.8.0",
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.0",
-    "babel-eslint": "8.2.5",
-    "babel-preset-env": "1.7.0",
-    "babel-preset-react-app": "3.1.2",
-    "babel-preset-stage-2": "6.24.1",
-    "eslint": "4.19.1",
-    "eslint-plugin-import": "2.13.0",
-    "eslint-plugin-jest": "21.17.0",
-    "eslint-plugin-jsx-a11y": "6.0.3",
-    "eslint-plugin-promise": "3.8.0",
-    "eslint-plugin-react": "7.10.0",
-    "husky": "1.0.0-rc.9",
+    "@reactioncommerce/eslint-config": "2.2.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "~25.1.0",
+    "babel-plugin-rewire-exports": "^2.0.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-plugin-transform-import-meta": "~1.0.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react-app": "^3.1.2",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "7.32.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^26.1.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
     "jest": "23.2.0",
-    "react": "16.4.1",
-    "react-test-renderer": "16.4.1",
+    "react": "16.13.0",
+    "react-test-renderer": "16.13.0",
     "rimraf": "2.6.2",
-    "semantic-release": "15.6.0"
+    "semantic-release": "~19.0.2"
   },
   "peerDependencies": {
-    "react": "^16.4.1"
+    "react": "^16.13.0"
   },
   "babel": {
     "presets": [
@@ -56,7 +63,12 @@
     "sourceMaps": true
   },
   "eslintConfig": {
-    "extends": "@reactioncommerce"
+    "extends": "@reactioncommerce",
+    "rules": {
+      "react/display-name": "off",
+      "react/prop-types": "off",
+      "react/sort-comp": "off"
+    }
   },
   "commitlint": {
     "extends": [

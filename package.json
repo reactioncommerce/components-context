@@ -8,6 +8,7 @@
     "lint": "eslint src",
     "test": "jest src"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reactioncommerce/components-context.git"
@@ -62,7 +63,12 @@
     "sourceMaps": true
   },
   "eslintConfig": {
-    "extends": "@reactioncommerce"
+    "extends": "@reactioncommerce",
+    "rules": {
+      "react/display-name": "off",
+      "react/prop-types": "off",
+      "react/sort-comp": "off"
+    }
   },
   "commitlint": {
     "extends": [
